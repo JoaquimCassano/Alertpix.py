@@ -19,16 +19,18 @@ class Charge():
     def create(self):
         request  =  requests.post(
             url=f'{statics.BASEURL}/create-charge',
-            data={
+            json={
                 "link": self.link,
                 "amount": self.amount,
                 "comment": self.comment,
-                "username": self.username
-            }
+                "userName": self.username
+            },
+            headers={"content-type": "application/json"}
+            
         )
         if request.status_code == 200:
-            self.charge_id = request.json()["id"]
-            self.brcode = brcode.BrCODE(request.json()["brCode"])   
+            self.charge_id = request.json()['data']["id"]
+            self.brcode = brcode.BrCODE(request.json()['data']["brCode"])   
             return self
         else:
             raise Exception(f'Request returned status {request.status_code} | Response: {request.text}')
