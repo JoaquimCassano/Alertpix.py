@@ -14,3 +14,23 @@ Instale usando o pip:
 ```
 pip install alertpix
 ```
+
+<h1>Exemplos</h1>
+
+<h2>Criar um pagamento </h2>
+```python
+import alertpix, time
+
+pagamento = alertpix.Charge(link="apenasumnerdd", amount=100, comment="teste", username="fulano")
+
+pagamento.create()
+print("BrCode para o pagamento: ", pagamento.brcode.code)
+
+while True:
+    time.sleep(1)
+    if pagamento.check():
+        print("Pagamento concluído")
+        break
+    else:
+        print("Aguardando pagamento...")
+  ```
