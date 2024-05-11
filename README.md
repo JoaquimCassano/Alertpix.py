@@ -8,3 +8,9 @@
 <i>Uma biblioteca python para facilitar o uso da API do AlertPix</i>
 <br>
 
+<h1>Instalação</h1>
+
+Instale usando o pip:
+```
+pip install alertpix
+```
