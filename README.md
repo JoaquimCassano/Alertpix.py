@@ -16,8 +16,9 @@ pip install alertpix
 ```
 
 <h1>Exemplos</h1>
-
 <h2>Criar um pagamento </h2>
+
+
 ```python
 import alertpix, time
 
@@ -33,4 +34,4 @@ while True:
         break
     else:
         print("Aguardando pagamento...")
-  ```
+```
