@@ -1,3 +1,6 @@
 /build/
 /dist/
-/alertpix.egg-info/
+/alertpix.egg-info
+/docs
+api_key.txt
+alertpix.egg-info

@@ -13,7 +13,7 @@ requirements = [
 
 setuptools.setup(
     name="alertpix",
-    version="0.1",
+    version="0.3.6",
     author="Joaquim Cassano",
     license='MIT',
     author_email="joaquim@cassano.com.br",
@@ -23,7 +23,8 @@ setuptools.setup(
     install_requires=requirements,
     keywords=["api", "alertpix", "payments", "pix"],
     url="https://github.com/JoaquimCassano/Alertpix.py",
-    packages=setuptools.find_packages(),
+    packages=["alertpix", "alertpix.src"],
+    package_dir={"alertpix": "alertpix", "alertpix.src": "alertpix/src"},
     python_requires=">=3.7",
     include_package_data=True,
     classifiers=[

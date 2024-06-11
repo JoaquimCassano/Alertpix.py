@@ -1,4 +1,5 @@
-import requests, statics
+import requests
+from .statics import BASEURL, Notification
 
 class Account():
 
@@ -11,7 +12,7 @@ class Account():
             Retorna uma tupla com o valor líquido e o bruto da carteira, respectivamente
         """
         response = requests.get(
-            f'{statics.BASEURL}/account/wallet',
+            f'{BASEURL}/account/wallet',
             headers={'Authorization': self.BearerToken}
         )
         if response.status_code == 200:
@@ -21,12 +22,12 @@ class Account():
             raise Exception(f'Request returned status {response.status_code} | Response: {response.text}')
     
     @property
-    def notifications(self) -> list[statics.Notification]:
+    def notifications(self) -> list[Notification]:
         response = requests.get(
-            f'{statics.BASEURL}/account/notifications',
+            f'{BASEURL}/account/notifications',
             headers={'Authorization': self.BearerToken}
         )
         if response.status_code == 200:
-            return [statics.Notification(notification) for notification in response.json()['data']]
+            return [Notification(notification) for notification in response.json()['data']]
         else:
             raise Exception(f'Request returned status {response.status_code} | Response: {response.text}')
